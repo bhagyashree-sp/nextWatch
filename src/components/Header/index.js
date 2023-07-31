@@ -16,11 +16,13 @@ const Header = () => {
         <img
           src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png"
           alt="dark-theme"
+          className="app-logo"
         />
       ) : (
         <img
           src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
           alt="light-theme"
+          className="app-logo"
         />
       )}
       <div className="threeicons">

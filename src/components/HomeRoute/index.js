@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { GrFormClose } from "react-icons/gr";
-import { GoSearch } from "react-icons/go";
+import { AiOutlineSearch } from "react-icons/ai";
 import Header from "../Header";
 import "./index.css";
 import Cookies from "js-cookie";
@@ -46,38 +46,46 @@ const HomeRoute = () => {
   }, [searchList]);
 
   return (
-    <div className="container">
+    <div className="outside-container">
       <Header />
-      <div className="side-bar-container">
+      <div className="inner-container">
         <SideBar />
-        <div className="modal">
-          <div className="three-items">
-            <img
-              src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
-              alt="light-theme"
-            />
-            <h1>Buy Nxt Watch Premium prepaid plans with UPI</h1>
-            <h2 className="button-design">GET IT NOW</h2>
+        <div className="home-container">
+          <div className="modal">
+            <div>
+              <img
+                src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
+                alt="light-theme"
+              />
+              <p className="home-heading">
+                Buy Nxt Watch Premium prepaid plans with UPI
+              </p>
+              <h2 className="get-now-Heading">GET IT NOW</h2>
+            </div>
+
+            <button type="button" className="close-icon">
+              <GrFormClose className="close" />
+            </button>
           </div>
 
-          <button type="button" className="close-icon">
-            <GrFormClose className="close" />
-          </button>
-        </div>
-        <div>
-          <div className="search-bar">
-            <input
-              type="search"
-              placeholder="Search"
-              onChange={onChangeSearch}
-              value={searchList}
-            />
-            <GoSearch />
-          </div>
-          <div className="video-list">
-            {videosList.map((video) => (
-              <Video key={video.id} video={video} />
-            ))}
+          <div className="search-container">
+            <div className="search-bar">
+              <input
+                type="search"
+                placeholder="Search"
+                onChange={onChangeSearch}
+                value={searchList}
+                className="search-input"
+              />
+              <button type="button" className="search-button">
+                <AiOutlineSearch />
+              </button>
+            </div>
+            <div className="video-list">
+              {videosList.map((video) => (
+                <Video key={video.id} video={video} />
+              ))}
+            </div>
           </div>
         </div>
       </div>

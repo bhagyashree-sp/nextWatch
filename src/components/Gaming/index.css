@@ -1,0 +1,42 @@
+.gaming-list-container {
+  display: flex;
+  flex-direction: row;
+  padding-left: 100px;
+  padding-right: 20px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+  background-color: #f9f9f9;
+  background-size: cover;
+}
+
+.gaming-container {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+.gaming-header {
+  display: flex;
+  align-items: center;
+  padding-left: 100px;
+  padding-right: 30px;
+  padding-bottom: 30px;
+  background-color: #ebebeb;
+  background-size: cover;
+}
+.gaming-icon {
+  margin-right: 30px;
+  width: 90px;
+  height: 90px;
+  padding: 26px;
+  border-radius: 45px;
+  color: #ff0000;
+  background-color: #d7dfe9;
+}
+.gaming-icon-heading {
+  color: #231f20;
+  font-family: "Roboto";
+  font-weight: bolder;
+  font-size: 40px;
+}

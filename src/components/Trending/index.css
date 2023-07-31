@@ -1,0 +1,39 @@
+.trending-container {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+.trending-header {
+  display: flex;
+  align-items: center;
+  padding-left: 100px;
+  padding-right: 30px;
+  /* padding-top: 30px; */
+  padding-bottom: 30px;
+  background-color: #ebebeb;
+  background-size: cover;
+}
+.trending-icon {
+  margin-right: 30px;
+  width: 90px;
+  height: 90px;
+  padding: 26px;
+  border-radius: 45px;
+  color: #ff0000;
+  background-color: #d7dfe9;
+}
+.trending-icon-heading {
+  color: #231f20;
+  font-family: "Roboto";
+  font-weight: bolder;
+  font-size: 40px;
+}
+.trending-list-container {
+  padding-left: 100px;
+  padding-right: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  overflow-y: scroll;
+  background-color: #f9f9f9;
+  background-size: cover;
+}

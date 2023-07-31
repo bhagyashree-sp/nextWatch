@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./index.css";
 
 const Video = (props) => {
@@ -9,24 +10,33 @@ const Video = (props) => {
     viewCount,
     channelName,
     profileImageUrl,
+    id,
   } = video;
 
   const currentYear = new Date().getFullYear();
   const publishedYear = new Date(publishedAt).getFullYear();
 
   const yearsAgo = currentYear - publishedYear;
-  return (
-    <div className="video-container">
-      <img src={thumbnailUrl} alt="thumb nail" className="thumbnail" />
-      <h1 className="title">{title}</h1>
-      <div className="channel-info">
-        <img src={profileImageUrl} alt="profileUrl" className="profile-image" />
-        <h1 className="channel-name">{channelName}</h1>
-      </div>
 
-      <p className="view-count">{viewCount} views</p>
-      <p className="yearsAgo">{yearsAgo}years ago</p>
-    </div>
+  return (
+    <Link to={`/videos/${id}`} className="video-container">
+      <img src={thumbnailUrl} alt="thumbnail" className="thumbnail-image" />
+      <div className="channel-container">
+        <img
+          src={profileImageUrl}
+          alt="channelProfile"
+          className="profile-image"
+        />
+        <div>
+          <h1 className="title">{title}</h1>
+          <h1 className="channel-name">{channelName}</h1>
+          <ul className="views-container">
+            <li className="video-views">{viewCount} views</li>
+            <li className="video-posted">{yearsAgo} years ago</li>
+          </ul>
+        </div>
+      </div>
+    </Link>
   );
 };
 
