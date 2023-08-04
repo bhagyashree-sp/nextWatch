@@ -1,7 +1,8 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useContext } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import "./index.css";
+import context from "../../context/context";
 
 const LoginRoute = (props) => {
   const [name, setName] = useState("");
@@ -9,6 +10,7 @@ const LoginRoute = (props) => {
   const [errorMsg, setErrorMsg] = useState("");
   const [dispPassword, setDispPassword] = useState(false);
   const navigate = useNavigate();
+  const { dark } = useContext(context);
 
   const dispType = dispPassword ? "text" : "password";
 
@@ -50,17 +52,38 @@ const LoginRoute = (props) => {
     }
   };
 
+  const jwtToken = Cookies.get("jwt_token");
+
+  if (jwtToken !== undefined) {
+    return <Navigate to="/" />;
+  }
+
   return (
-    <div className="main-container">
-      <div className="login-container">
+    <div
+      className={dark ? "main-container main-container-dark" : "main-container"}
+    >
+      <div
+        className={
+          dark ? "login-container login-container-dark" : "login-container"
+        }
+      >
         <img
-          src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
+          src={
+            dark
+              ? "https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png"
+              : "https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
+          }
           alt="logo"
           className="logo"
         />
         <form onSubmit={onSubmitForm}>
           <div className="form-group">
-            <label htmlFor="Username">USERNAME</label>
+            <label
+              htmlFor="Username"
+              className={dark ? "label label-dark" : "label"}
+            >
+              USERNAME
+            </label>
             <input
               id="Username"
               type="text"
@@ -70,7 +93,12 @@ const LoginRoute = (props) => {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="Password">PASSWORD</label>
+            <label
+              htmlFor="Password"
+              className={dark ? "label label-dark" : "label"}
+            >
+              PASSWORD
+            </label>
             <input
               type={dispType}
               className="input-field"
@@ -87,7 +115,14 @@ const LoginRoute = (props) => {
               className="show-password-checkbox"
               onChange={onClickCheckBox}
             />
-            <label htmlFor="showPassword" className="show-password-label">
+            <label
+              htmlFor="showPassword"
+              className={
+                dark
+                  ? "show-password-label show-password-label-dark"
+                  : "show-password-label"
+              }
+            >
               Show Password
             </label>
           </div>

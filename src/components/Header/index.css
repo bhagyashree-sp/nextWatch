@@ -6,6 +6,13 @@
   padding: 16px;
   height: 6%;
 }
+.logo-button-container {
+  width: 100px;
+  height: 30px;
+  background-color: transparent;
+  border-width: 0px;
+  cursor: pointer;
+}
 .app-logo {
   width: 100px;
   height: 30px;
@@ -16,18 +23,28 @@
   justify-content: space-between;
   align-items: center;
 }
-
-.theme {
-  border-width: 0px;
+.theme-button {
   background-color: transparent;
+  border-width: 0px;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  margin-right: 25px;
+  margin-bottom: 10px;
 }
 
-.icon {
-  height: 25px;
-  width: 25px;
+.theme-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 18px;
 }
-.icon-light {
-  color: white;
+
+.light-theme {
+  color: #000000;
+}
+
+.dark-theme {
+  color: #ffffff;
 }
 
 .profile-logo {
@@ -35,13 +52,86 @@
   width: 25px;
 }
 
-.logout {
-  border: 1px solid #3b82f6;
+.btn {
+  font-size: medium;
+  font-weight: 500;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+  height: 30px;
   background-color: transparent;
+  font-family: "Roboto";
+  cursor: pointer;
   color: #3b82f6;
+  border: 1px solid #3b82f6;
 }
-.logout-dark {
-  border: 1px solid #ffffff;
+.btn-dark {
+  border: 1px solid #f1f5f9;
+  color: #f1f5f9;
+}
+
+.popup-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.pop-up-content {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding-right: 30px;
+  padding-left: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.pop-up-content-dark {
+  background-color: black;
+}
+.pop-up-message {
+  color: #00306e;
+  font-family: "Roboto";
+  font-weight: 500;
+  font-size: 21px;
+}
+.pop-up-message-dark {
+  color: white;
+}
+.pop-up-buttons {
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+  padding-left: 10px;
+}
+.cancel-button {
   background-color: transparent;
+  color: #7e858e;
+  font-weight: 500;
+  font-size: 16px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-radius: 5px;
+  width: 100px;
+  cursor: pointer;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #7e858e;
+}
+.cancel-button-dark {
+  color: white;
+}
+
+.confirm-button {
+  background-color: #3b82f6;
   color: #ffffff;
+  font-weight: 500;
+  font-size: 16px;
+  border-width: 0px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-radius: 5px;
+  width: 100px;
+  cursor: pointer;
+}
+.confirm-button-dark {
+  color: white;
 }

@@ -8,6 +8,7 @@ import Trending from "./components/Trending";
 import Gaming from "./components/Gaming";
 import SavedVideos from "./components/SavedVideos";
 import Context from "./context/context";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const App = () => {
   const [savedVideosList, setSavedVideosList] = useState([]);
@@ -39,11 +40,28 @@ const App = () => {
     >
       <Routes>
         <Route path="/login" element={<LoginRoute />} />
-        <Route path="/" element={<HomeRoute />} />
-        <Route path="/videos/:id" element={<VideoItemDetailsRoute />} />
-        <Route path="/trending" element={<Trending />} />
-        <Route path="/gaming" element={<Gaming />} />
-        <Route path="/saved-videos" element={<SavedVideos />} />
+        <Route
+          path="/"
+          element={<ProtectedRoute renderComponent={<HomeRoute />} />}
+        />
+        <Route
+          path="/videos/:id"
+          element={
+            <ProtectedRoute renderComponent={<VideoItemDetailsRoute />} />
+          }
+        />
+        <Route
+          path="/trending"
+          element={<ProtectedRoute renderComponent={<Trending />} />}
+        />
+        <Route
+          path="/gaming"
+          element={<ProtectedRoute renderComponent={<Gaming />} />}
+        />
+        <Route
+          path="/saved-videos"
+          element={<ProtectedRoute renderComponent={<SavedVideos />} />}
+        />
       </Routes>
     </Context.Provider>
   );

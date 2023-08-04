@@ -5,6 +5,9 @@
   height: 100vh;
   background-color: #f2f2f2;
 }
+.main-container-dark {
+  background-color: black;
+}
 
 .login-container {
   width: 400px;
@@ -14,10 +17,16 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.login-container-dark {
+  background-color: black;
+}
+
 .logo {
   display: block;
   margin-bottom: 20px;
+  height: 20%;
   width: 100%;
+  align-self: center;
 }
 
 .form-group {
@@ -28,6 +37,10 @@ label {
   display: block;
   margin-bottom: 5px;
   font-weight: 400;
+  color: #475569;
+}
+.label-dark {
+  color: #f1f5f9;
 }
 
 .input-field {
@@ -50,6 +63,10 @@ label {
 .show-password-label {
   font-size: 14px;
   font-weight: 500;
+  color: #1e293b;
+}
+.show-password-label-dark {
+  color: #f1f5f9;
 }
 
 .login-button {
