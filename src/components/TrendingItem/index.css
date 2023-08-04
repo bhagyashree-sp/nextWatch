@@ -21,6 +21,9 @@
   font-size: 20px;
   color: #212121;
 }
+.trending-title-dark {
+  color: #f8fafc;
+}
 .trending-channel-name {
   color: #616e7c;
   font-family: "Roboto";

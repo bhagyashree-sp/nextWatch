@@ -1,13 +1,17 @@
+import { useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { AiFillHome } from "react-icons/ai";
 import { HiFire } from "react-icons/hi";
 import { SiYoutubegaming } from "react-icons/si";
 import { MdPlaylistAdd } from "react-icons/md";
 import "./index.css";
+import context from "../../context/context";
 
 const SideBar = () => {
   const { pathname } = useLocation();
-  console.log(pathname);
+  // console.log(pathname);
+
+  const { dark } = useContext(context);
 
   return (
     <div className="side-bar-container">
@@ -34,6 +38,7 @@ const SideBar = () => {
           <h1 className="heading">Gaming</h1>
         </Link>
         <Link
+          to="/saved-videos"
           className={
             pathname === "/saved-videos" ? "linkstyle" : "non-link-style"
           }
@@ -43,7 +48,13 @@ const SideBar = () => {
         </Link>
       </div>
       <div className="footer-logo-container">
-        <h1 className="footer-heading">CONTACT US</h1>
+        <h1
+          className={
+            dark ? "footer-heading footer-heading-dark" : "footer-heading"
+          }
+        >
+          CONTACT US
+        </h1>
         <div className="three-logo-container">
           <img
             src="https://assets.ccbp.in/frontend/react-js/nxt-watch-facebook-logo-img.png"
@@ -61,7 +72,11 @@ const SideBar = () => {
             className="logo"
           />
         </div>
-        <p className="footer-content">
+        <p
+          className={
+            dark ? "footer-content footer-content-dark" : "footer-content"
+          }
+        >
           Enjoy!Now to see your channels and recommendations!
         </p>
       </div>

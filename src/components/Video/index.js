@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
+import { useContext } from "react";
 import "./index.css";
+import context from "../../context/context";
 
 const Video = (props) => {
   const { video } = props;
@@ -12,6 +14,8 @@ const Video = (props) => {
     profileImageUrl,
     id,
   } = video;
+
+  const { dark } = useContext(context);
 
   const currentYear = new Date().getFullYear();
   const publishedYear = new Date(publishedAt).getFullYear();
@@ -28,7 +32,7 @@ const Video = (props) => {
           className="profile-image"
         />
         <div>
-          <h1 className="title">{title}</h1>
+          <h1 className={dark ? "title title-dark" : "title"}>{title}</h1>
           <h1 className="channel-name">{channelName}</h1>
           <ul className="views-container">
             <li className="video-views">{viewCount} views</li>

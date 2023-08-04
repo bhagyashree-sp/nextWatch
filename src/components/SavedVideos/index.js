@@ -4,23 +4,47 @@ import Header from "../Header";
 import SideBar from "../SideBar";
 import TrendingItem from "../TrendingItem";
 import "./index.css";
+import Context from "../../context/context";
+import { useContext } from "react";
 
 const SavedVideos = () => {
-  const [savedVideosList, setSavedVideosList] = useState([]);
+  const { savedVideosList, dark } = useContext(Context);
   return (
-    <div className="outside-container">
+    <div
+      className={
+        dark ? "outside-container outside-container-dark" : "outside-container"
+      }
+    >
       <Header />
       <div className="inner-container">
         <SideBar />
         <div className="trending-container">
-          <div className="trending-header">
+          <div
+            className={
+              dark ? "trending-header trending-header-dark" : "trending-header"
+            }
+          >
             <MdPlaylistAdd className="trending-icon" />
-            <h1 className="trending-icon-heading">Saved Videos</h1>
+            <h1
+              className={
+                dark
+                  ? "trending-icon-heading trending-icon-heading-dark"
+                  : "trending-icon-heading"
+              }
+            >
+              Saved Videos
+            </h1>
           </div>
-          <div>
+          <div
+            className={
+              dark
+                ? "trending-list-container trending-list-container-dark"
+                : "trending-list-container"
+            }
+          >
             {savedVideosList.length !== 0 ? (
-              savedVideosList.map((eachVideo) => (
-                <TrendingItem eachVideo={eachVideo} key={eachVideo.id} />
+              savedVideosList.map((videoItem) => (
+                <TrendingItem videoItem={videoItem} key={videoItem.id} />
               ))
             ) : (
               <div className="empty-saved-video-conatiner">

@@ -8,14 +8,31 @@ import { MdPlaylistAdd } from "react-icons/md";
 import Header from "../Header";
 import SideBar from "../SideBar";
 import "./index.css";
+import Context from "../../context/context";
+import { useContext } from "react";
 
 const VideoItemDetailsRoute = () => {
+  const { id } = useParams();
+  const {
+    addVideoToSavedVideoList,
+    removeSavedVideoList,
+    savedVideosList,
+    dark,
+  } = useContext(Context);
+
+  const filteredList = savedVideosList.filter(
+    (eachVideo) => eachVideo.id === id
+  );
+
+  const isSavedInitial =
+    filteredList.length !== 0 ? filteredList[0].isSaved : false;
+
   const [videoDetails, setVideoDetails] = useState({});
   const [isLiked, setIsLiked] = useState(false);
   const [isDisLiked, setIsDisLiked] = useState(false);
+  const [isSaved, setIsSaved] = useState(isSavedInitial);
 
   const jwtToken = Cookies.get("jwt_token");
-  const { id } = useParams();
   const getDetails = async () => {
     const url = `https://apis.ccbp.in/videos/${id}`;
     const options = {
@@ -31,7 +48,7 @@ const VideoItemDetailsRoute = () => {
       id: data1.id,
       title: data1.title,
       videoUrl: data1.video_url,
-      thumnbnailURl: data1.thumbnail_url,
+      thumbnailUrl: data1.thumbnail_url,
       name: data1.channel.name,
       profileImageUrl: data1.channel.profile_image_url,
       subscriberCount: data1.channel.subscriber_count,
@@ -74,16 +91,42 @@ const VideoItemDetailsRoute = () => {
     setIsLiked(false);
   };
 
+  const onClickToggleSave = () => {
+    setIsSaved((prevIsSaved) => !prevIsSaved);
+    const videoToSave = {
+      ...videoDetails,
+      isSaved: !isSaved,
+    };
+
+    if (!isSaved) {
+      addVideoToSavedVideoList(videoToSave);
+    } else {
+      removeSavedVideoList(videoToSave);
+    }
+  };
+
   return (
-    <div className="outside-container">
+    <div
+      className={
+        dark ? "outside-container outside-container-dark" : "outside-container"
+      }
+    >
       <Header />
       <div className="inner-container">
         <SideBar />
-        <div className="video-item-content-container">
+        <div
+          className={
+            dark
+              ? "video-item-content-container video-item-content-container-dark"
+              : "video-item-content-container"
+          }
+        >
           <div className="player-container">
             <ReactPlayer url={videoUrl} width="100%" />
           </div>
-          <h1 className="video-detail-heading">{title}</h1>
+          <h1 className={dark ? "video-title video-title-dark" : "video-title"}>
+            {title}
+          </h1>
           <div className="video-detail-views-likes-container">
             <ul className="views-container">
               <li className="video-views">{viewCount} views</li>
@@ -113,9 +156,16 @@ const VideoItemDetailsRoute = () => {
                 <AiOutlineDislike className="like-action-icon" />
                 <p className="like-action-text">Dislike</p>
               </button>
-              <button className="like-action-container">
+              <button
+                className="like-action-container"
+                onClick={onClickToggleSave}
+              >
                 <MdPlaylistAdd className="like-action-icon" />
-                <p className="like-action-text">Save</p>
+                {isSaved ? (
+                  <p className="like-action-text">Saved</p>
+                ) : (
+                  <p className="like-action-text">Save</p>
+                )}
               </button>
             </div>
           </div>
@@ -127,11 +177,27 @@ const VideoItemDetailsRoute = () => {
               className="profile-image"
             />
             <div className="channel-information">
-              <h1 className="video-detail-channel-name">{name}</h1>
+              <h1
+                className={
+                  dark
+                    ? "video-detail-channel-name video-detail-channel-name-dark"
+                    : "video-detail-channel-name"
+                }
+              >
+                {name}
+              </h1>
               <p className="video-detail-channel-subscribers">
                 {subscriberCount} subscribers
               </p>
-              <p className="video-detail-channel-description">{description}</p>
+              <p
+                className={
+                  dark
+                    ? "video-detail-channel-description video-detail-channel-description-dark "
+                    : "video-detail-channel-description"
+                }
+              >
+                {description}
+              </p>
             </div>
           </div>
         </div>

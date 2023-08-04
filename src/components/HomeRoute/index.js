@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { GrFormClose } from "react-icons/gr";
 import { AiOutlineSearch } from "react-icons/ai";
 import Header from "../Header";
@@ -6,10 +6,13 @@ import "./index.css";
 import Cookies from "js-cookie";
 import Video from "../Video";
 import SideBar from "../SideBar";
+import context from "../../context/context";
 
 const HomeRoute = () => {
   const [searchList, setSearchList] = useState("");
   const [videosList, setVideosList] = useState([]);
+  const [showModal, setShowModal] = useState(true);
+  const { dark } = useContext(context);
 
   const onChangeSearch = (event) => {
     setSearchList(event.target.value);
@@ -45,30 +48,51 @@ const HomeRoute = () => {
     getVideosList();
   }, [searchList]);
 
+  const onClickCloseIcon = () => {
+    // console.log("clicked");
+    setShowModal(false);
+  };
+
   return (
-    <div className="outside-container">
+    <div
+      className={
+        dark ? "outside-container outside-container-dark" : "outside-container"
+      }
+    >
       <Header />
       <div className="inner-container">
         <SideBar />
         <div className="home-container">
-          <div className="modal">
-            <div>
-              <img
-                src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
-                alt="light-theme"
-              />
-              <p className="home-heading">
-                Buy Nxt Watch Premium prepaid plans with UPI
-              </p>
-              <h2 className="get-now-Heading">GET IT NOW</h2>
+          {showModal && (
+            <div className="modal">
+              <div>
+                <img
+                  src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
+                  alt="light-theme"
+                />
+                <p className="home-heading">
+                  Buy Nxt Watch Premium prepaid plans with UPI
+                </p>
+                <h2 className="get-now-Heading">GET IT NOW</h2>
+              </div>
+
+              <button
+                type="button"
+                className="close-icon"
+                onClick={onClickCloseIcon}
+              >
+                <GrFormClose className="close" />
+              </button>
             </div>
+          )}
 
-            <button type="button" className="close-icon">
-              <GrFormClose className="close" />
-            </button>
-          </div>
-
-          <div className="search-container">
+          <div
+            className={
+              dark
+                ? "search-container search-container-dark"
+                : "search-container"
+            }
+          >
             <div className="search-bar">
               <input
                 type="search"

@@ -3,6 +3,9 @@
   flex-direction: column;
   width: 90%;
 }
+.trending-container-dark {
+  background-color: black;
+}
 .trending-header {
   display: flex;
   align-items: center;
@@ -13,6 +16,9 @@
   background-color: #ebebeb;
   background-size: cover;
 }
+.trending-header-dark {
+  background-color: black;
+}
 .trending-icon {
   margin-right: 30px;
   width: 90px;
@@ -22,11 +28,17 @@
   color: #ff0000;
   background-color: #d7dfe9;
 }
+.trending-icon-dark {
+  background-color: black;
+}
 .trending-icon-heading {
   color: #231f20;
   font-family: "Roboto";
   font-weight: bolder;
   font-size: 40px;
+}
+.trending-icon-heading-dark {
+  color: #f8fafc;
 }
 .trending-list-container {
   padding-left: 100px;
@@ -36,4 +48,7 @@
   overflow-y: scroll;
   background-color: #f9f9f9;
   background-size: cover;
+}
+.trending-list-container-dark {
+  background-color: black;
 }

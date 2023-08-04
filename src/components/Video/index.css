@@ -27,14 +27,18 @@
   font-weight: 500;
   font-size: 16px;
 }
+.title-dark {
+  color: white;
+}
 .channel-name {
-  color: #212121;
+  color: #616e7c;
   font-family: "Roboto";
   font-weight: 500;
   font-size: 16px;
   margin-top: -5px;
   margin-bottom: -10px;
 }
+
 .views-container {
   display: flex;
   flex-direction: row;

@@ -26,6 +26,10 @@
   height: 25px;
   width: 25px;
 }
+.icon-light {
+  color: white;
+}
+
 .profile-logo {
   height: 25px;
   width: 25px;
@@ -35,4 +39,9 @@
   border: 1px solid #3b82f6;
   background-color: transparent;
   color: #3b82f6;
+}
+.logout-dark {
+  border: 1px solid #ffffff;
+  background-color: transparent;
+  color: #ffffff;
 }

@@ -1,13 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Cookies from "js-cookie";
 import { HiFire } from "react-icons/hi2";
 import SideBar from "../SideBar";
 import Header from "../Header";
 import "./index.css";
 import TrendingItem from "../TrendingItem";
+import context from "../../context/context";
 
 const Trending = () => {
   const [trendingList, setTrendingList] = useState([]);
+  const { dark } = useContext(context);
 
   const getTrendingList = async () => {
     const url = "https://apis.ccbp.in/videos/trending";
@@ -39,16 +41,42 @@ const Trending = () => {
   }, []);
 
   return (
-    <div className="outside-container">
+    <div
+      className={
+        dark ? "outside-container outside-container-dark" : "outside-container"
+      }
+    >
       <Header />
       <div className="inner-container">
         <SideBar />
         <div className="trending-container">
-          <div className="trending-header">
-            <HiFire className="trending-icon" />
-            <h1 className="trending-icon-heading">Trending</h1>
+          <div
+            className={
+              dark ? "trending-header trending-header-dark" : "trending-header"
+            }
+          >
+            <HiFire
+              className={
+                dark ? "trending-icon trending-icon-dark" : "trending-icon"
+              }
+            />
+            <h1
+              className={
+                dark
+                  ? "trending-icon-heading trending-icon-heading-dark"
+                  : "trending-icon-heading"
+              }
+            >
+              Trending
+            </h1>
           </div>
-          <div className="trending-list-container">
+          <div
+            className={
+              dark
+                ? "trending-list-container trending-list-container-dark"
+                : "trending-list-container"
+            }
+          >
             {trendingList.map((videoItem) => (
               <TrendingItem key={videoItem.id} videoItem={videoItem} />
             ))}

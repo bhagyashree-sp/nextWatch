@@ -55,11 +55,17 @@
   font-family: bolder;
   font-size: 17px;
 }
+.footer-heading-dark {
+  color: white;
+}
 .footer-content {
   color: #212121;
   font-family: "Roboto";
   font-weight: lighter;
   font-size: 14px;
+}
+.footer-content-dark {
+  color: white;
 }
 .three-logo-container {
   display: flex;

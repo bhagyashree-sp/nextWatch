@@ -58,6 +58,9 @@
   font-weight: 700;
   font-size: 23px;
 }
+.video-detail-channel-name-dark {
+  color: #f8fafc;
+}
 
 .video-detail-channel-subscribers {
   color: #616e7c;
@@ -72,10 +75,27 @@
   font-weight: 500;
   font-size: 17px;
 }
+.video-detail-channel-description-dark {
+  color: #f8fafc;
+}
+
 .video-item-content-container {
   background-color: #f1f5f9;
   background-size: cover;
   padding: 25px;
   overflow-y: scroll;
   width: 80%;
+}
+.video-item-content-container-dark {
+  background-color: black;
+}
+
+.video-title {
+  padding-top: 10px;
+  font-family: "Roboto";
+  font-weight: 300;
+  font-size: 20px;
+}
+.video-title-dark {
+  color: #f8fafc;
 }

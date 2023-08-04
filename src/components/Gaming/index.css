@@ -10,6 +10,9 @@
   background-color: #f9f9f9;
   background-size: cover;
 }
+.gaming-list-container-dark {
+  background-color: black;
+}
 
 .gaming-container {
   display: flex;
@@ -25,6 +28,9 @@
   background-color: #ebebeb;
   background-size: cover;
 }
+.gaming-header-dark {
+  background-color: black;
+}
 .gaming-icon {
   margin-right: 30px;
   width: 90px;
@@ -34,9 +40,15 @@
   color: #ff0000;
   background-color: #d7dfe9;
 }
+.gaming-icon-dark {
+  background-color: black;
+}
 .gaming-icon-heading {
   color: #231f20;
   font-family: "Roboto";
   font-weight: bolder;
   font-size: 40px;
+}
+.gaming-icon-heading-dark {
+  color: #f8fafc;
 }
