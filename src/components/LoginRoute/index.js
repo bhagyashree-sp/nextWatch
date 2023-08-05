@@ -4,7 +4,7 @@ import Cookies from "js-cookie";
 import "./index.css";
 import context from "../../context/context";
 
-const LoginRoute = (props) => {
+const LoginRoute = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
@@ -74,7 +74,7 @@ const LoginRoute = (props) => {
               : "https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
           }
           alt="logo"
-          className="logo"
+          className="login-logo"
         />
         <form onSubmit={onSubmitForm}>
           <div className="form-group">
